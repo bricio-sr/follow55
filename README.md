@@ -32,6 +32,7 @@ touch database/database.sqlite
 
 # Windows (PowerShell)
 New-Item database/database.sqlite -ItemType File
+
 php artisan migrate --seed
 
 php artisan serve
@@ -59,9 +60,10 @@ POST /api/login
 Content-Type: application/json
 
 { "email": "alice@example.com", "password": "password" }
-```
+
 POST /api/logout
 Authorization: Bearer {token}
+```
 
 ### Filmes
 
