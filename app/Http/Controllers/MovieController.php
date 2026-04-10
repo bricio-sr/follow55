@@ -6,12 +6,15 @@ use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 use App\Http\Resources\MovieResource;
 use App\Models\Movie;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class MovieController extends Controller
 {
+    use AuthorizesRequests;
+
     public function index(Request $request): AnonymousResourceCollection
     {
         $this->authorize('viewAny', Movie::class);
@@ -42,7 +45,6 @@ class MovieController extends Controller
     {
         $this->authorize('create', Movie::class);
 
-        // created_by vem do usuario autenticado e nunca da requisicao
         $movie = Movie::create(
             array_merge(
                 $request->validated(),
