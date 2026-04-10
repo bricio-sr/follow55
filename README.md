@@ -20,7 +20,7 @@ API REST para gerenciamento de catálogo de filmes, desenvolvida como parte do d
 ## Como rodar
 
 ```bash
-git clone <repo>
+git clone https://github.com/bricio-sr/follow55.git
 cd follow55
 
 composer install
